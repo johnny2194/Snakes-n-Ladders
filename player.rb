@@ -6,7 +6,7 @@ class Player
     @position = 1
   end 
 
-  def move(new_position)
+  def move_to_space(new_position)
     @position = new_position
   end 
 

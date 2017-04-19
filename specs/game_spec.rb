@@ -107,9 +107,11 @@ class TestGame < MiniTest::Test
   end
 
   def test_check_win_while_not_winning
-    @game3.current_player.move(100)
+    @game3.current_player.move_to_space(100)
     assert(@game3.check_win(@game3.current_player))
   end
+
+ 
 
 
 end
