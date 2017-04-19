@@ -10,4 +10,14 @@ class Game
     @players_array << Player.new(name)
   end 
 
+  def remove_player(name)
+    for player in @players_array
+      if player.name == name
+        @players_array.delete(player)
+        break
+      end
+      
+    end
+  end
+
 end 
