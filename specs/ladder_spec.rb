@@ -10,4 +10,8 @@ class TestLadder < MiniTest::Test
   def test_can_get_top_position_from_ladder
     assert_equal(34, @ladder.top)
   end
+
+  def test_can_get_bottom_position_from_ladder
+    assert_equal(11, @ladder.bottom)
+  end
 end
