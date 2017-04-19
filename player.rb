@@ -20,5 +20,7 @@ class Player
     dice = Random.new
     return dice.rand(1..6)
   end 
+
+
 end 
 

@@ -58,6 +58,23 @@ class Game
     end
   end
 
+  def check_ladders(current_player)
+    for ladder in @ladders
+      if current_player.position == ladder.bottom
+        current_player.move_to_space(ladder.top)
+      end
+    end
+  end 
+
+  def check_snakes(current_player)
+    for snake in @snakes
+      if current_player.position == snake.head
+        current_player.move_to_space(snake.tail)
+      end
+    end
+  end 
+
+
 
 
 end 

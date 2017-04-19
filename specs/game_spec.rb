@@ -25,10 +25,21 @@ class TestGame < MiniTest::Test
     @game5.add_player("Bob")
     @game5.add_player("Kate")
     @game5.add_player("Doug")
+    @game5.next_player
+    @game5.current_player.move_to_space(7)
     @game5.add_snake(23,10)
     @game5.add_snake(46,23)
     @game5.add_ladder(34,54)
     @game5.add_ladder(7, 67)
+
+
+    @game6 = Game.new
+    @game6.add_player("Bob")
+    @game6.next_player
+    @game6.current_player.move_to_space(23)
+    @game6.add_snake(23,10)
+    @game6.add_snake(46,23)
+    
   end
 
   def test_has_empty_players_array
@@ -109,6 +120,16 @@ class TestGame < MiniTest::Test
   def test_check_win_while_not_winning
     @game3.current_player.move_to_space(100)
     assert(@game3.check_win(@game3.current_player))
+  end
+
+  def test_check_ladders_moves_player_on_ladder
+    @game5.check_ladders(@game5.current_player)
+    assert_equal(67, @game5.current_player.position)
+  end
+
+  def test_check_snakes_moves_player_on_snake
+    @game6.check_snakes(@game6.current_player)
+    assert_equal(10, @game6.current_player.position)
   end
 
  
