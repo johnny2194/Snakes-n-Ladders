@@ -59,6 +59,16 @@ class TestGame < MiniTest::Test
     assert_equal(0, @game.ladders.count)
   end
 
-  
+  def test_add_ladder
+    @game.add_ladder(23, 43)
+    ladder_position = [@game.ladders.first.bottom, @game.ladders.first.top]
+    assert_equal([23, 43], ladder_position)
+  end
+
+  def test_add_two_ladders
+    @game.add_ladder(23, 43)
+    @game.add_ladder(45, 70)
+    assert_equal(2, @game.ladders.count)
+  end 
 
 end

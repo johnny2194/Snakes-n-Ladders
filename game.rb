@@ -1,4 +1,5 @@
 require_relative('player.rb')
+require_relative('ladder.rb')
 
 class Game
   attr_reader :players_array, :current_player, :ladders
@@ -34,6 +35,10 @@ class Game
       end
     end
   end
+
+  def add_ladder(bottom, top)
+    @ladders << Ladder.new(bottom, top)
+  end 
 
 
 
