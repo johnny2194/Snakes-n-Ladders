@@ -4,7 +4,7 @@ class Game
   attr_reader :players_array, :current_player
   def initialize()
     @players_array = []
-    current_player = nil
+    @current_player = nil
   end 
 
   def add_player(name)
@@ -25,11 +25,11 @@ class Game
     if @current_player == nil
       @current_player = @players_array[0]
     else
-      current_index = @players_array.index
+      current_index = @players_array.index(@current_player)
       if current_index < @players_array.count - 1
-        current_player = @players_array[current_index+ 1]
+        @current_player = @players_array[current_index+ 1]
       else
-        current_player = @players_array[0]
+        @current_player = @players_array[0]
       end
     end
   end
