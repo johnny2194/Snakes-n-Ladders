@@ -1,10 +1,11 @@
 require_relative('player.rb')
 
 class Game
-  attr_reader :players_array, :current_player
+  attr_reader :players_array, :current_player, :ladders
   def initialize()
     @players_array = []
     @current_player = nil
+    @ladders = []
   end 
 
   def add_player(name)
@@ -33,5 +34,7 @@ class Game
       end
     end
   end
+
+
 
 end 
