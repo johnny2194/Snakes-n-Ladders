@@ -25,6 +25,10 @@ class TestGame < MiniTest::Test
     assert_equal(0, @game.players_array.count)
   end
 
+def test_next_player
+  @game2.next_player
+  assert_equal("Bob", @game2.current_player.name)
+end
 
   # this adds a player to players array then checks if that player is there by making sure it has the same name as given when added
 end
