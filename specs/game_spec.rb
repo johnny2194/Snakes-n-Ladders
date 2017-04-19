@@ -71,4 +71,23 @@ class TestGame < MiniTest::Test
     assert_equal(2, @game.ladders.count)
   end 
 
+  def test_snake_array_is_empty_at_first
+    assert_equal(0, @game.snakes.count)
+  end
+
+  def test_add_snake
+    @game.add_snake(43, 23)
+    snake_position = [@game.snakes.first.head, @game.snakes.first.tail]
+    assert_equal([43, 23], snake_position)
+  end
+
+  def test_add_two_snakes
+    @game.add_snake(43, 23)
+    @game.add_snake(70, 45)
+    assert_equal(2, @game.snakes.count)
+  end
+
+
+
+
 end

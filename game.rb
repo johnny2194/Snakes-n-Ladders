@@ -1,12 +1,14 @@
 require_relative('player.rb')
 require_relative('ladder.rb')
+require_relative('snake.rb')
 
 class Game
-  attr_reader :players_array, :current_player, :ladders
+  attr_reader :players_array, :current_player, :ladders, :snakes
   def initialize()
     @players_array = []
     @current_player = nil
     @ladders = []
+    @snakes = []
   end 
 
   def add_player(name)
@@ -38,6 +40,10 @@ class Game
 
   def add_ladder(bottom, top)
     @ladders << Ladder.new(bottom, top)
+  end 
+
+  def add_snake(head, tail)
+    @snakes << Snake.new(head, tail)
   end 
 
 
