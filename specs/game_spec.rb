@@ -21,7 +21,14 @@ class TestGame < MiniTest::Test
     @game4.next_player
     @game4.next_player
 
-
+    @game5 = Game.new
+    @game5.add_player("Bob")
+    @game5.add_player("Kate")
+    @game5.add_player("Doug")
+    @game5.add_snake(23,10)
+    @game5.add_snake(46,23)
+    @game5.add_ladder(34,54)
+    @game5.add_ladder(7, 67)
   end
 
   def test_has_empty_players_array
@@ -87,7 +94,22 @@ class TestGame < MiniTest::Test
     assert_equal(2, @game.snakes.count)
   end
 
+  def test_reset 
+    @game5.reset
+    assert_equal(0, @game5.snakes.count)
+    assert_equal(0, @game5.ladders.count)
+    assert_equal(0, @game5.players_array.count)
+    assert_nil(@game5.current_player)
+  end 
 
+  def test_check_win_while_not_winning
+    refute(@game3.check_win(@game3.current_player))
+  end
+
+  def test_check_win_while_not_winning
+    @game3.current_player.move(100)
+    assert(@game3.check_win(@game3.current_player))
+  end
 
 
 end

@@ -46,6 +46,18 @@ class Game
     @snakes << Snake.new(head, tail)
   end 
 
+  def reset
+    initialize
+  end
+
+  def check_win(current_player)
+    if current_player.position == 100
+      return true
+    else
+      return false
+    end
+  end
+
 
 
 end 
